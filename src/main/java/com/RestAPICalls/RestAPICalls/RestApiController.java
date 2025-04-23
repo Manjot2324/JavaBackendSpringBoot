@@ -1,10 +1,6 @@
 package com.RestAPICalls.RestAPICalls;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/hello")
@@ -20,6 +16,10 @@ public class RestApiController {
     @GetMapping("/param/{name}")
     public String getHellowithName(@PathVariable String name) {
         return "Hello " + name + " from BridgeLabz";
+    }
+    @PostMapping("/post")
+    public String postHello(@RequestBody UserDTO userDTO){
+        return "Hello" +" "+ userDTO.getFirstName() + " " + userDTO.getLastName() +" " + "from Bridze-Labz.";
     }
 
 
